@@ -1,5 +1,5 @@
 """
-    访问谷歌浏览器，实现登录
+    访问谷歌浏览器，实现工会登录
 """
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
