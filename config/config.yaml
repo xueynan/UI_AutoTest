@@ -1,0 +1,4 @@
+url:
+  iums: "https://iums.logimis.com/#/"
+chromedriver:
+  path: "C:/Program Files (x86)/Google/Chrome/Application/chromedriver.exe"   # 注意/不要写成\
