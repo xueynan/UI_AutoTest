@@ -17,6 +17,13 @@ class LoginPage:
         time.sleep(10)
 
 
+"""
+下一步：
+1、iums登录封装，在当前文件
+2、selenium方法二次封装，另起文件
+"""
+
+
 if __name__ == '__main__':
 
     LoginPage()
