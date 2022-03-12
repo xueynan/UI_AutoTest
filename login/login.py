@@ -4,6 +4,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from config.config import YamlReader
+from selenium.webdriver.common.by import By
 import time
 
 
@@ -16,6 +17,21 @@ class LoginPage:
         self.driver.maximize_window()
         time.sleep(10)
 
+    def user_name(self):
+        xpath = self.driver.find_element(By.XPATH, YamlReader().username(username="username", username_xpath="username_xpath"))
+        xpath.send_keys(YamlReader().username(username="username", username_values="username_values"))
+        time.sleep(3)
+
+    def password(self):
+        xpath = self.driver.find_element(By.XPATH, YamlReader().password(password="password", password_xpath="password_xpath"))
+        xpath.send_keys(YamlReader().password(password="password", password_values="password_values"))
+        time.sleep(3)
+
+    def login(self):
+        xpath = self.driver.find_element(By.XPATH, YamlReader().login(login_button="login_button", login_button_xpath="login_button_xpath"))
+        xpath.click()
+        time.sleep(3)
+
 
 """
 下一步：
@@ -26,5 +42,6 @@ class LoginPage:
 
 if __name__ == '__main__':
 
-    LoginPage()
-
+    LoginPage().user_name()
+    LoginPage().password()
+    LoginPage().login()
