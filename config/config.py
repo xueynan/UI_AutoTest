@@ -8,21 +8,24 @@ config_yaml = os.path.join(config_dir, "config.yaml")
 
 
 class YamlReader:
+
+    # 实例化，读取config.yaml，并加载出来
     def __init__(self):
         self.file = open(config_yaml, "r", encoding="utf-8")
         self.contents = yaml.safe_load(self.file)
 
-    def get_url(self, url, url_path):
-        return self.contents[url][url_path]
+    # 获取url地址
+    def get_url(self, url=None):
+        return self.contents['url'][url]
 
-    def chrome_driver(self, chromedriver, path):
-        return self.contents[chromedriver][path]
+    # 读取谷歌浏览器驱动位置
+    def chrome_driver(self, path=None):
+        return self.contents['chromedriver'][path]
 
-    def username(self, username, username_xpath=None, username_values=None):
-        return self.contents[username][username_xpath], self.contents[username][username_values]
+    # 获取元素
+    def element(self, element=None):
+        return self.contents['element'][element]
 
-    def password(self, password, password_xpath=None, password_values=None):
-        return self.contents[password][password_xpath], self.contents[password][password_values]
-
-    def login(self, login_button, login_button_xpath):
-        return self.contents[login_button][login_button_xpath]
+    # 获取元素值
+    def value(self, value=None):
+        return self.contents['value'][value]
